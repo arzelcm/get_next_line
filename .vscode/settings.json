@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "*.Makefile": "makefile",
-        "get_next_line.h": "c"
-    }
-}
