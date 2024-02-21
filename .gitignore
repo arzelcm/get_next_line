@@ -1,0 +1,9 @@
+a.out
+main.c
+tests
+main
+main.dSYM
+
+.vscode
+
+Makefile
