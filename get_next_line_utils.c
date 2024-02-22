@@ -34,7 +34,7 @@ int	get_line_break_pos(char *str)
 	if (!str)
 		return (-1);
 	i = 0;
-	while (i > ft_strlen(str) && str[i] != '\n')
+	while (i < ft_strlen(str) && str[i] != '\n')
 		i++;
 	if (i == ft_strlen(str))
 		return (-1);
@@ -70,3 +70,18 @@ char	*ft_substr(char *s, int start, int len)
 	return (result);
 }
 
+int	ft_strlcpy(char *dst, char *src, int dstsize)
+{
+	int	i;
+
+	if (!dstsize)
+		return (ft_strlen(src));
+	i = 0;
+	while (src[i] != '\0' && i < dstsize - 1)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (ft_strlen(src));
+}

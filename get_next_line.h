@@ -20,10 +20,12 @@
 
 char	*get_next_line(int fd);
 
-int	ft_strlen(char *s);
+int		ft_strlen(char *s);
 
 int		get_line_break_pos(char *str);
 
 char	*ft_substr(char *s, int start, int len);
+
+int		ft_strlcpy(char *dst, char *src, int dstsize);
 
 #endif
