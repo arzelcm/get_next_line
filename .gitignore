@@ -5,6 +5,6 @@ main
 main.dSYM
 log
 
-.vscode
+#.vscode
 
-#Makefile
+Makefile

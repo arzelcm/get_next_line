@@ -6,15 +6,13 @@
 /*   By: arcanava <arcanava@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 11:14:34 by arcanava          #+#    #+#             */
-/*   Updated: 2024/02/20 20:56:07 by arcanava         ###   ########.fr       */
+/*   Updated: 2024/02/22 17:33:13 by arcanava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 42
-#endif
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+# define BUFFER_SIZE 42
 # include <unistd.h>
 # include <stdlib.h>
 
