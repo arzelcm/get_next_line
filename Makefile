@@ -9,6 +9,11 @@ paco:
 	mv Makefile tests
 	-~/francinette/tester.sh
 	mv tests/Makefile .
+
+pacos:
+	mv Makefile tests
+	-~/francinette/tester.sh -s -tm 600
+	mv tests/Makefile .
 	
 leaks: all
 	leaks -quiet -fullContent -atExit -- ./main

@@ -8,13 +8,6 @@
 # include <limits.h>
 #include <stdio.h>
 
-typedef struct	s_fd_repo
-{
-	int					fd;
-	char				*buff;
-	struct s_fd_repo	*next;
-}	t_fd_repo;
-
 char *get_next_line(int fd);
 
 int ft_strlen(char *s);
