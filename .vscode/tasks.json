@@ -4,6 +4,11 @@
             "type": "shell",
             "label": "make main",
             "command": "make"
+        },
+        {
+            "type": "shell",
+            "label": "make main bonus",
+            "command": "make bonus"
         }
     ],
     "version": "2.0.0"

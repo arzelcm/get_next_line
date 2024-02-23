@@ -5,7 +5,7 @@
 int	main(void)
 {
 	char *auxline;
-	// int	fd = 1;
+	// int	fd = 100;
 	int	fd = open("tests/test2.txt", O_RDONLY);
 	char *line = get_next_line(fd);
 	int i = 0;

@@ -1,16 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: arcanava <arcanava@student.42barcel>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 11:16:15 by arcanava          #+#    #+#             */
-/*   Updated: 2024/02/22 19:13:06 by arcanava         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 // TODO: Check max ints and stuff
 // TODO: Check NULL terminated strings if necessary
@@ -97,24 +85,52 @@ static char	*get_line_clean_buffer(char **buff, int buff_res, int fd)
 	return (line);
 }
 
+static char	**get_buff_by_fd(t_fd_repo *repo, int fd)
+{
+	// TODO: If fd doesn't exist in repo, create the node and return addr to it
+	while (repo && repo->next && repo->fd != fd)
+		repo = repo->next;
+	if (repo && repo->next)
+		return (&repo->next->buff);
+	else
+	{
+		if (repo && repo->next)
+			repo = repo->next;
+		repo = malloc(sizeof(t_fd_repo));
+		if (!repo)
+			return (NULL);
+		return (&repo->buff);
+	}
+}
+
 char	*get_next_line(int fd)
 {
-	static char		*buff = NULL;
-	char			*line;
-	int				fill_buff_res;
+	static t_fd_repo	*fd_repo;
+	char				**buff;
+	char				*line;
+	int					fill_buff_res;
 
-	fill_buff_res = fill_buffer(fd, &buff);
-	if ((fill_buff_res < 0 || (fill_buff_res == 0 && *buff == '\0')))
+	//printf("Buff_size: %i, Max_fd: %i, fd: %i;", BUFFER_SIZE, OPEN_MAX, fd);
+	// TODO: Simplify to 1 param
+	buff = get_buff_by_fd(fd_repo, fd);
+	if (!buff)
+		return (NULL);
+
+	if (BUFFER_SIZE <= 0 || fd < 0 || fd >= OPEN_MAX)
+		return (NULL);
+
+	fill_buff_res = fill_buffer(fd, buff);
+	if ((fill_buff_res < 0 || (fill_buff_res == 0 && **buff == '\0')))
 	{
-		free(buff);
-		buff = NULL;
+		free(*buff);
+		*buff = NULL;
 		return (NULL);
 	}
-	line = get_line_clean_buffer(&buff, fill_buff_res, fd);
+	line = get_line_clean_buffer(buff, fill_buff_res, fd);
 	if (!line)
 	{
-		free(buff);
-		buff = NULL;
+		free(*buff);
+		*buff = NULL;
 		return (NULL);
 	}
 	return (line);
