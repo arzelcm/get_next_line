@@ -1,8 +1,6 @@
 #include "get_next_line_bonus.h"
 
 // TODO: Check max ints and stuff
-// TODO: Check NULL terminated strings if necessary
-// TODO: Remove below
 
 int	fill_buffer(int fd, char **buff)
 {
@@ -85,22 +83,26 @@ static char	*get_line_clean_buffer(char **buff, int buff_res, int fd)
 	return (line);
 }
 
-static char	**get_buff_by_fd(t_fd_repo *repo, int fd)
+static char	**get_buff_by_fd(t_fd_repo *repo, int fd, int mode)
 {
 	// TODO: If fd doesn't exist in repo, create the node and return addr to it
 	while (repo && repo->next && repo->fd != fd)
 		repo = repo->next;
 	if (repo && repo->next)
-		return (&repo->next->buff);
+		repo = repo->next;
 	else
 	{
-		if (repo && repo->next)
-			repo = repo->next;
 		repo = malloc(sizeof(t_fd_repo));
 		if (!repo)
 			return (NULL);
-		return (&repo->buff);
 	}
+	if (mode == DELETE_REPO)
+	{
+		free(repo->buff);
+		free()
+	}
+	else
+		return (&repo->buff);
 }
 
 char	*get_next_line(int fd)
@@ -111,17 +113,16 @@ char	*get_next_line(int fd)
 	int					fill_buff_res;
 
 	//printf("Buff_size: %i, Max_fd: %i, fd: %i;", BUFFER_SIZE, OPEN_MAX, fd);
+	if (BUFFER_SIZE <= 0 || fd < 0 || fd >= OPEN_MAX)
+		return (NULL);
 	// TODO: Simplify to 1 param
 	buff = get_buff_by_fd(fd_repo, fd);
 	if (!buff)
 		return (NULL);
-
-	if (BUFFER_SIZE <= 0 || fd < 0 || fd >= OPEN_MAX)
-		return (NULL);
-
 	fill_buff_res = fill_buffer(fd, buff);
 	if ((fill_buff_res < 0 || (fill_buff_res == 0 && **buff == '\0')))
 	{
+		// TODO: Free whole fd_repo
 		free(*buff);
 		*buff = NULL;
 		return (NULL);
@@ -129,6 +130,7 @@ char	*get_next_line(int fd)
 	line = get_line_clean_buffer(buff, fill_buff_res, fd);
 	if (!line)
 	{
+		// TODO: Free whole fd_repo
 		free(*buff);
 		*buff = NULL;
 		return (NULL);
