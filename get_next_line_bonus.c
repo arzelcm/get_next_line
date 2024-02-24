@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arzelcm <arzelcm@student.42.fr>            +#+  +:+       +#+        */
+/*   By: arcanava <arcanava@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/23 20:25:32 by arzelcm           #+#    #+#             */
-/*   Updated: 2024/02/24 02:52:35 by arzelcm          ###   ########.fr       */
+/*   Created: 2024/02/24 13:13:03 by arcanava          #+#    #+#             */
+/*   Updated: 2024/02/24 13:13:07 by arcanava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// TODO: Canviar el header!
 #include "get_next_line_bonus.h"
-// TODO: Check max ints and stuff
 
 static int	create_buffer(int fd, char **buff)
 {

@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arzelcm <arzelcm@student.42.fr>            +#+  +:+       +#+        */
+/*   By: arcanava <arcanava@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/23 20:25:36 by arzelcm           #+#    #+#             */
-/*   Updated: 2024/02/24 01:49:31 by arzelcm          ###   ########.fr       */
+/*   Created: 2024/02/24 13:13:48 by arcanava          #+#    #+#             */
+/*   Updated: 2024/02/24 13:13:51 by arcanava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// TODO: Canviar el header!
 #include "get_next_line_bonus.h"
 
 int	ft_strlen(char *s)
