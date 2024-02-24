@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arcanava <arcanava@student.42barcel>       +#+  +:+       +#+        */
+/*   By: arzelcm <arzelcm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 11:17:29 by arcanava          #+#    #+#             */
-/*   Updated: 2024/02/22 17:42:48 by arcanava         ###   ########.fr       */
+/*   Updated: 2024/02/24 01:20:19 by arzelcm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,26 +44,6 @@ int	get_line_break_pos(char *str)
 		return (i);
 }
 
-static char	*ft_strdup(char *s1)
-{
-	char	*ptr;
-	size_t	len;
-	size_t	i;
-
-	len = ft_strlen(s1);
-	ptr = malloc(sizeof(char) * (len + 1));
-	if (!ptr)
-		return (0);
-	i = 0;
-	while (i < len)
-	{
-		ptr[i] = s1[i];
-		i++;
-	}
-	ptr[i] = '\0';
-	return (ptr);
-}
-
 char	*ft_substr(char *s, int start, int len)
 {
 	char			*result;
@@ -74,8 +54,6 @@ char	*ft_substr(char *s, int start, int len)
 	if (!s)
 		return (NULL);
 	strlen = ft_strlen(s);
-	if (start >= strlen)
-		return (ft_strdup(""));
 	final_len = len;
 	if (final_len > strlen - start)
 		final_len = strlen - start;
