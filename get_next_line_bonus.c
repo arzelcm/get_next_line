@@ -6,7 +6,7 @@
 /*   By: arzelcm <arzelcm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 20:25:32 by arzelcm           #+#    #+#             */
-/*   Updated: 2024/02/24 01:55:59 by arzelcm          ###   ########.fr       */
+/*   Updated: 2024/02/24 02:52:35 by arzelcm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static int	clean_buffer(char **buff, int break_pos, int buff_len, char **line)
 	{
 		excess = ft_substr(*buff, break_pos + 1, buff_len);
 		if (!excess)
-			return (free(line), 0);
+			return (free_buffer(line), 0);
 		free(*buff);
 		*buff = excess;
 	}

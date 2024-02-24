@@ -10,9 +10,14 @@ paco:
 	-~/francinette/tester.sh
 	mv tests/Makefile .
 
+pacom:
+	mv Makefile tests
+	-~/francinette/tester.sh -m
+	mv tests/Makefile .
+
 pacos:
 	mv Makefile tests
-	-~/francinette/tester.sh -s -tm 600
+	-~/francinette/tester.sh -s --timeout 600
 	mv tests/Makefile .
 	
 leaks: all
