@@ -6,7 +6,7 @@
 /*   By: arzelcm <arzelcm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 20:25:36 by arzelcm           #+#    #+#             */
-/*   Updated: 2024/02/24 01:38:28 by arzelcm          ###   ########.fr       */
+/*   Updated: 2024/02/24 01:49:31 by arzelcm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_strlen(char *s)
 	return (len);
 }
 
-int	get_line_break_pos(char *str)
+int	line_break_pos(char *str)
 {
 	int	i;
 	int	str_len;
@@ -87,7 +87,7 @@ int	ft_strlcpy(char *dst, char *src, int dstsize)
 	return (ft_strlen(src));
 }
 
-void	free_buff(char **buff)
+void	free_buffer(char **buff)
 {
 	if (!buff || !*buff)
 		return ;

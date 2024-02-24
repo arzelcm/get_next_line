@@ -6,7 +6,7 @@
 /*   By: arzelcm <arzelcm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 11:17:29 by arcanava          #+#    #+#             */
-/*   Updated: 2024/02/24 01:20:19 by arzelcm          ###   ########.fr       */
+/*   Updated: 2024/02/24 01:59:32 by arzelcm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ int	ft_strlen(char *s)
 	return (len);
 }
 
-int	get_line_break_pos(char *str)
+int	line_break_pos(char *str)
 {
 	int	i;
 	int	str_len;
 
-	str_len = ft_strlen(str);
 	if (!str)
 		return (-1);
+	str_len = ft_strlen(str);
 	i = 0;
 	while (i < str_len && str[i] != '\n')
 		i++;
@@ -84,4 +84,12 @@ int	ft_strlcpy(char *dst, char *src, int dstsize)
 	}
 	dst[i] = '\0';
 	return (ft_strlen(src));
+}
+
+void	free_buffer(char **buff)
+{
+	if (!buff || !*buff)
+		return ;
+	free(*buff);
+	*buff = NULL;
 }

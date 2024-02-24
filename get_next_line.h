@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arcanava <arcanava@student.42barcel>       +#+  +:+       +#+        */
+/*   By: arzelcm <arzelcm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 11:14:34 by arcanava          #+#    #+#             */
-/*   Updated: 2024/02/22 17:33:13 by arcanava         ###   ########.fr       */
+/*   Updated: 2024/02/24 01:59:56 by arzelcm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,18 @@
 # endif
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
 char	*get_next_line(int fd);
 
 int		ft_strlen(char *s);
 
-int		get_line_break_pos(char *str);
+int		line_break_pos(char *str);
 
 char	*ft_substr(char *s, int start, int len);
 
 int		ft_strlcpy(char *dst, char *src, int dstsize);
+
+void	free_buffer(char **buff);
 
 #endif
