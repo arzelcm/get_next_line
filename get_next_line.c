@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arzelcm <arzelcm@student.42.fr>            +#+  +:+       +#+        */
+/*   By: arcanava <arcanava@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 11:16:15 by arcanava          #+#    #+#             */
-/*   Updated: 2024/02/24 02:11:36 by arzelcm          ###   ########.fr       */
+/*   Updated: 2024/03/06 11:13:01 by arcanava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,8 @@ static int	fill_buffer(int fd, char **buff)
 	int		read_res;
 
 	read_res = 1;
-	if (!*buff)
-	{
-		read_res = create_buffer(fd, buff);
-		if (read_res == -1)
-			return (-1);
-	}
+	if (!*buff && create_buffer(fd, buff) == -1)
+		return (-1);
 	while (line_break_pos(*buff) == -1 && read_res > 0)
 	{
 		str_len = ft_strlen(*buff);

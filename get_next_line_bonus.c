@@ -6,7 +6,7 @@
 /*   By: arcanava <arcanava@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 13:13:03 by arcanava          #+#    #+#             */
-/*   Updated: 2024/02/24 13:13:07 by arcanava         ###   ########.fr       */
+/*   Updated: 2024/03/06 11:13:57 by arcanava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,8 @@ static int	fill_buffer(int fd, char **buff)
 	int		read_res;
 
 	read_res = 1;
-	if (!*buff)
-	{
-		read_res = create_buffer(fd, buff);
-		if (read_res == -1)
-			return (-1);
-	}
+	if (!*buff && create_buffer(fd, buff) == -1)
+		return (-1);
 	while (line_break_pos(*buff) == -1 && read_res > 0)
 	{
 		str_len = ft_strlen(*buff);
