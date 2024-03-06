@@ -13,7 +13,7 @@ The aim of this function is to get the next line for a given `int fd` (file desc
 char	*get_next_line(int fd);
 ```
 
-#### Return values
+### Return values
 If valid: `char *` pointing to the first `char` of the `\0` terminated line string.
 
 If not valid: `NULL` meaning wether there are no more lines or some error occurred.
